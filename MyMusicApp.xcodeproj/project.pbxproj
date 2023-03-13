@@ -19,6 +19,8 @@
 		BDC0E3D729BE2F4C009096BF /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC0E3D629BE2F4C009096BF /* DetailViewController.swift */; };
 		BDC0E3DB29BE4114009096BF /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC0E3DA29BE4114009096BF /* HistoryViewController.swift */; };
 		BDC0E3DD29BE411F009096BF /* favoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC0E3DC29BE411F009096BF /* favoriteViewController.swift */; };
+		BDC0E3DF29BF32A6009096BF /* HistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC0E3DE29BF32A6009096BF /* HistoryCell.swift */; };
+		BDC0E3E329BF6ECB009096BF /* favoriteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC0E3E229BF6ECB009096BF /* favoriteCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,8 @@
 		BDC0E3D629BE2F4C009096BF /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		BDC0E3DA29BE4114009096BF /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		BDC0E3DC29BE411F009096BF /* favoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = favoriteViewController.swift; sourceTree = "<group>"; };
+		BDC0E3DE29BF32A6009096BF /* HistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryCell.swift; sourceTree = "<group>"; };
+		BDC0E3E229BF6ECB009096BF /* favoriteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = favoriteCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +101,8 @@
 			isa = PBXGroup;
 			children = (
 				BDC0E3D429BE1BE2009096BF /* MusicTVC.swift */,
+				BDC0E3DE29BF32A6009096BF /* HistoryCell.swift */,
+				BDC0E3E229BF6ECB009096BF /* favoriteCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -176,7 +182,9 @@
 				BDC0E3D529BE1BE2009096BF /* MusicTVC.swift in Sources */,
 				BDC0E3BC29BE137F009096BF /* AppDelegate.swift in Sources */,
 				BDC0E3BE29BE137F009096BF /* SceneDelegate.swift in Sources */,
+				BDC0E3DF29BF32A6009096BF /* HistoryCell.swift in Sources */,
 				BDC0E3D329BE1840009096BF /* MusicModel.swift in Sources */,
+				BDC0E3E329BF6ECB009096BF /* favoriteCell.swift in Sources */,
 				BDC0E3DD29BE411F009096BF /* favoriteViewController.swift in Sources */,
 				BDC0E3C629BE137F009096BF /* MyMusicApp.xcdatamodeld in Sources */,
 				BDC0E3D729BE2F4C009096BF /* DetailViewController.swift in Sources */,

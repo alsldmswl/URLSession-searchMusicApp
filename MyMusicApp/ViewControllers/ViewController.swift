@@ -6,15 +6,19 @@
 //
 
 import UIKit
+import CoreData
+
 
 class ViewController: UIViewController {
     
     var musicModel: MusicModel?
     var term = ""
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     
+  
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
@@ -75,6 +79,17 @@ class ViewController: UIViewController {
         session.finishTasksAndInvalidate()
    
     }
+    
+    func saveTerm(){
+        guard let entityDescription = NSEntityDescription.entity(forEntityName: "MySearch", in: context) else {return}
+        guard let object = NSManagedObject(entity: entityDescription, insertInto: context) as? MySearch else {return}
+        
+        object.term = searchBar.text
+        object.uuid = UUID()
+        
+        let appDelegate = (UIApplication.shared.delegate as! AppDelegate)
+        appDelegate.saveContext()
+    }
 
 }
 
@@ -126,6 +141,7 @@ extension ViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let hasText = searchBar.text else {return}
         term = hasText
+        saveTerm()
         requestAPI()
         self.view.endEditing(true)
     }

@@ -6,24 +6,77 @@
 //
 
 import UIKit
+import CoreData
 
 class HistoryViewController: UIViewController {
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    var searchList = [MySearch]()
+    let appdelegate = UIApplication.shared.delegate as! AppDelegate
+    var searchTerm: MySearch?
+    @IBOutlet weak var historyTableView: UITableView!
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        historyTableView.delegate = self
+        historyTableView.dataSource = self
+        
+       
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        fetchData()
+        historyTableView.reloadData()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func fetchData() {
+        let fetchRequest: NSFetchRequest<MySearch> = MySearch.fetchRequest()
+        
+        let context = appdelegate.persistentContainer.viewContext
+        do {
+            self.searchList = try context.fetch(fetchRequest)
+        }catch {
+            print(error)
+        }
     }
-    */
-
+    
+    @IBAction func deleteButton(_ sender: UIButton) {
+//        guard let hasData = searchTerm else {return}
+//        guard let hasUUID = hasData.uuid else {return}
+//        let fetchRequest: NSFetchRequest<MySearch> = MySearch.fetchRequest()
+//        fetchRequest.predicate = NSPredicate(format: "uuid = %@", hasUUID as CVarArg)
+//
+//        do{
+//            let loadedData = try context.fetch(fetchRequest)
+//            if let loadFirstData = loadedData.first{
+//                context.delete(loadFirstData)
+//                let appDelegate = (UIApplication.shared.delegate as! AppDelegate)
+//                appDelegate.saveContext()
+//            }
+//        }catch {
+//            print(error)
+//        }
+//        fetchData()
+//        historyTableView.reloadData()
+//
+    }
+    
 }
+
+extension HistoryViewController: UITableViewDelegate, UITableViewDataSource{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return searchList.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "HistoryCell", for: indexPath) as! HistoryCell
+        cell.termLabel.text = searchList[indexPath.row].term
+ 
+        return cell
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+}
+    
+
