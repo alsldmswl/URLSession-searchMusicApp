@@ -252,7 +252,7 @@
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" title="삭제"/>
                                                     <connections>
-                                                        <action selector="deleteButton:" destination="DQ4-Hm-jUE" eventType="touchUpInside" id="UPm-Jm-5oo"/>
+                                                        <action selector="actionDelete:" destination="kqT-im-35J" eventType="touchUpInside" id="IPF-nA-5L1"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -266,6 +266,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="deleteButton" destination="zDl-4f-z3Q" id="Mf4-8S-pXl"/>
                                             <outlet property="termLabel" destination="vrV-1z-6xf" id="lGg-6A-Ebt"/>
                                         </connections>
                                     </tableViewCell>
